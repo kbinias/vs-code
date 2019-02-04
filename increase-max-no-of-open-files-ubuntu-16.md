@@ -1,30 +1,22 @@
 ## Increase permanently max number of open files limit in Ubuntu 16.04
 
-#### Maximum capability of system
-$ `cat /proc/sys/fs/file-max`  
-708444
-
-#### Current available limit
-$ `ulimit -n`  
-1024
-
-#### To increase the available limit to 2048
+#### Increase the available limit (system-wide limit)
 $ `sudo vim /etc/sysctl.conf`
 
 #### Add the following line to file
-`fs.file-max = 2048`
+`fs.file-max = 2097152`
 
-#### Run this to refresh with new config
+#### Run this to increase total number of files that can remain open system-wide
 $ `sudo sysctl -p`
 
-#### Edit the following file
+#### Edit the following file (per-user limit)
 $ `sudo vim /etc/security/limits.conf`
 
 #### Add following lines to file
-`* soft  nofile  2048`  
-`* hard  nofile  2048`  
-`root soft nofile 2048`  
-`root hard nofile 2048`
+`* soft  nofile  600000`
+`* hard  nofile  600000`
+`root soft nofile 600000`
+`root hard nofile 600000`
 
 #### Edit the following file
 $ `sudo vim /etc/pam.d/common-session`
@@ -32,6 +24,9 @@ $ `sudo vim /etc/pam.d/common-session`
 #### Add this line to it
 `session required pam_limits.so`
 
-#### Logout and login and try the following command
-$ `ulimit -n`  
-2048
+#### Logout and login
+
+#### Check new limits
+Hard limit `ulimit -Hn`
+Soft limit `ulimit -Sn`
+Max limit `cat /proc/sys/fs/file-max`
