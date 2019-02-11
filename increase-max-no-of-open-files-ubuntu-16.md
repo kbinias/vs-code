@@ -27,6 +27,6 @@ $ `sudo vim /etc/pam.d/common-session`
 #### Logout and login
 
 #### Check new limits
-Hard limit `ulimit -Hn`
-Soft limit `ulimit -Sn`
+Hard limit `ulimit -Hn`<br />
+Soft limit `ulimit -Sn`<br />
 Max limit `cat /proc/sys/fs/file-max`
