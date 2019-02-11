@@ -13,10 +13,10 @@ $ `sudo sysctl -p`
 $ `sudo vim /etc/security/limits.conf`
 
 #### Add following lines to file
-`* soft  nofile  600000`
-`* hard  nofile  600000`
-`root soft nofile 600000`
-`root hard nofile 600000`
+`* soft  nofile  600000`<br />
+`* hard  nofile  600000`<br />
+`root soft nofile 600000`<br />
+`root hard nofile 600000`<br />
 
 #### Edit the following file
 $ `sudo vim /etc/pam.d/common-session`
