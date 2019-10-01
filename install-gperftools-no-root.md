@@ -9,6 +9,7 @@ cd gperftools
 ./configure --prefix ~/.local/
 make -j8
 make install
+cd .. && rm -rf gperftools
 ```
 
 ## Build paddle using local gperftools
