@@ -1,0 +1,2 @@
+Unrstricted debugging to user-written code only (launch.json):
+"justMyCode": false
